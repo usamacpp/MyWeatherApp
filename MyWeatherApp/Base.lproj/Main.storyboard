@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rCh-te-iDk">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+    </dependencies>
+    <scenes>
+        <!--Search Screen-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController title="Search Screen" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Weather.png" translatesAutoresizingMaskIntoConstraints="NO" id="o5j-ic-Sse">
+                                <rect key="frame" x="175" y="175" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="UWg-bZ-g4h"/>
+                                    <constraint firstAttribute="width" constant="250" id="c5y-Yk-G3a"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bOO-tM-iWD" customClass="UITextFieldNoLongPress">
+                                <rect key="frame" x="16" y="72" width="492" height="30"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="aX7-QC-BYX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldChanged:" destination="vXZ-lx-hvc" eventType="editingChanged" id="EAk-aC-hPa"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Lig-nX-GYF"/>
+                                    <outletCollection property="gestureRecognizers" destination="6Ar-0m-buE" appends="YES" id="FQl-Fh-YOg"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXd-34-ofS">
+                                <rect key="frame" x="516" y="72" width="68" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="CAc-zW-qOE"/>
+                                    <constraint firstAttribute="height" constant="30" id="De1-ZK-aMn"/>
+                                </constraints>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSearchPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="nAs-ps-Urz"/>
+                                </connections>
+                            </button>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qF2-OT-mYI">
+                                <rect key="frame" x="16" y="110" width="492" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="LGB-Pf-UVM"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="ZwQ-Lo-kUu"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="veR-o2-Nxy"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GXd-34-ofS" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="6JV-dM-ftm"/>
+                            <constraint firstItem="qF2-OT-mYI" firstAttribute="width" secondItem="bOO-tM-iWD" secondAttribute="width" id="C5g-oP-kPZ"/>
+                            <constraint firstItem="GXd-34-ofS" firstAttribute="leading" secondItem="bOO-tM-iWD" secondAttribute="trailing" constant="8" id="E9K-cG-bqd"/>
+                            <constraint firstItem="qF2-OT-mYI" firstAttribute="top" secondItem="bOO-tM-iWD" secondAttribute="bottom" constant="8" id="Gyy-hd-kUp"/>
+                            <constraint firstItem="bOO-tM-iWD" firstAttribute="leading" secondItem="qF2-OT-mYI" secondAttribute="leading" id="HRf-r2-DSc"/>
+                            <constraint firstAttribute="centerX" secondItem="o5j-ic-Sse" secondAttribute="centerX" id="KXT-aZ-ZWP"/>
+                            <constraint firstItem="bOO-tM-iWD" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="LKP-mR-iez"/>
+                            <constraint firstItem="bOO-tM-iWD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="LXd-gN-gVh"/>
+                            <constraint firstAttribute="centerY" secondItem="o5j-ic-Sse" secondAttribute="centerY" id="c9p-48-keV"/>
+                            <constraint firstAttribute="trailing" secondItem="GXd-34-ofS" secondAttribute="trailing" constant="16" id="cm0-Ow-LLT"/>
+                            <constraint firstItem="bOO-tM-iWD" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="wg9-13-0r6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search" id="wYL-rM-UiX"/>
+                    <connections>
+                        <outlet property="historyTableview" destination="qF2-OT-mYI" id="NUr-NE-1kK"/>
+                        <outlet property="searchCity" destination="bOO-tM-iWD" id="BCK-cr-jLD"/>
+                        <segue destination="IGd-eE-X7U" kind="show" identifier="ShowDetails" id="YT2-6E-AIK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="6Ar-0m-buE">
+                    <connections>
+                        <action selector="textFieldLongPressed:" destination="vXZ-lx-hvc" id="mdL-km-HXd"/>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="mVY-tK-V7d"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="590" y="99"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="TVg-Xi-HaO">
+            <objects>
+                <tableViewController id="IGd-eE-X7U" customClass="DetailsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rM1-fU-PVH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="IGd-eE-X7U" id="0fw-LE-3M3"/>
+                            <outlet property="delegate" destination="IGd-eE-X7U" id="Fv7-cC-CDL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Details" id="YiF-5L-PjW"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KUB-Rq-3vN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1384" y="98"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="ysp-WR-RE9">
+            <objects>
+                <navigationController title="Search" id="rCh-te-iDk" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eDg-oy-urG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="cye-hI-lX4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wep-Nc-6yo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-178" y="99"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Weather.png" width="600" height="600"/>
+    </resources>
+</document>
